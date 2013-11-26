@@ -20,12 +20,12 @@ Your <code>SplayTree</code> implementation must contain a <code>root *Node</code
         right  *Node
     }
 
-SetRoot and GetRoot are the getter and setter for root, and Ord is a method for
+<code>SetRoot</code> and <code>GetRoot</code> are the getter and setter for root, and <code>Ord</code> is a method for
 comparing keys that returns 1 if key1 < key2, 2 if key1 = key2, or 3 if
 key1 > key2.
 
 Here's an example assuming we have the splay directory in the same directory as
-our project (a very similar example is given in example.go):
+our project (a very similar example is given in <i>example.go</i>):
 
     import "./splay"
 
@@ -80,12 +80,12 @@ our project (a very similar example is given in example.go):
         splay.Delete(T, "foo")
         err = splay.Delete(T, "foo")
         fmt.Println(err)
-		 
-		    splay.Print(T)
+				
+        splay.Print(T)
     }
 
 		
-<b>Copyright 2013 Nathaniel Travis
+<b>Copyright 2013 Nathaniel Travis<br>
 Distributed under the GNU General Public License (see gpl.txt)</b>
 
 <i>Note: this was a Golang learning exercise for me, so I may have broken some
