@@ -27,7 +27,13 @@ key1 > key2.
 Here's an example assuming we have the splay directory in the same directory as
 our project (a very similar example is given in <i>example.go</i>):
 
-    import "./splay"
+    package main
+		
+    import (
+        "./splay"
+        "fmt"
+        "unicode/utf8"
+    )
 
     type Tree struct {
         root *splay.Node
@@ -68,11 +74,12 @@ our project (a very similar example is given in <i>example.go</i>):
 
         splay.Insert(T, "hello", "world")
         splay.Insert(T, "foo", "bar")
+        splay.Insert(T, "what's your name", "buddy?")
         splay.Insert(T, "Goku says", "Kamehameha")
-        err := splay.Insert(T, "hello")
+        err := splay.Insert(T, "foo", "foo")
         fmt.Println(err)
 
-        v := splay.Find("Goku")
+        v := splay.Find(T, "Goku says")
         fmt.Println(v)
 
         splay.Print(T)
