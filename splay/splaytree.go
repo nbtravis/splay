@@ -4,17 +4,17 @@
 package splay
 
 import (
+	"errors"
 	"fmt"
 	"strings"
-	"errors"
 )
 
 type Node struct {
-	key interface{}
-	value interface{}
+	key    interface{}
+	value  interface{}
 	parent *Node
-	left *Node
-	right *Node
+	left   *Node
+	right  *Node
 }
 
 // The SplayTree Interface must have a getter and setter method for a root Node
@@ -79,7 +79,7 @@ func FindNode(ST SplayTree, key interface{}, n *Node) interface{} {
 func Insert(ST SplayTree, key, value interface{}) error {
 	if Search(ST, key) != nil {
 		s := fmt.Sprintf("splay.Insert Error: key %v already exists", key)
-		return errors.New(s)		
+		return errors.New(s)
 	}
 
 	n := InsertNode(ST, key, value, ST.GetRoot())
@@ -95,7 +95,7 @@ func InsertNode(ST SplayTree, key interface{}, value interface{}, n *Node) *Node
 		ST.SetRoot(_n)
 		return ST.GetRoot()
 	}
-	
+
 	switch ST.Ord(key, n.key) {
 	case 0:
 		if n.left == nil {
@@ -186,7 +186,7 @@ func Remove(ST SplayTree, n *Node) {
 				n.right.parent = n.parent
 			} else {
 				n.parent.right = nil
-			}			
+			}
 		}
 	}
 	n = nil
@@ -220,7 +220,7 @@ func Splay(ST SplayTree, n *Node) {
 			ZigL(ST, n)
 		} else if n.parent == ST.GetRoot() && n.parent.right == n {
 			ZigR(ST, n)
-		}	else if n.parent.left == n && n.parent.parent.left == n.parent {
+		} else if n.parent.left == n && n.parent.parent.left == n.parent {
 			ZigZigL(ST, n)
 		} else if n.parent.right == n && n.parent.parent.right == n.parent {
 			ZigZigR(ST, n)
@@ -287,7 +287,7 @@ func ZigZigL(ST SplayTree, n *Node) {
 		gg.left = n
 	} else {
 		gg.right = n
-	}	
+	}
 }
 
 func ZigZigR(ST SplayTree, n *Node) {
@@ -355,14 +355,14 @@ func ZigZagLR(ST SplayTree, n *Node) {
 		gg.left = n
 	} else {
 		gg.right = n
-	}	
+	}
 }
 
 func ZigZagRL(ST SplayTree, n *Node) {
 	gg := n.parent.parent.parent
 
 	var isRoot, isLeft bool
-	if gg == nil {		
+	if gg == nil {
 		isRoot = true
 	} else {
 		isRoot = false
@@ -389,7 +389,7 @@ func ZigZagRL(ST SplayTree, n *Node) {
 		gg.left = n
 	} else {
 		gg.right = n
-	}	
+	}
 }
 
 ////////////////////////////////////////////////////////////////////////////////

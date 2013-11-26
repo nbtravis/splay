@@ -4,9 +4,9 @@
 package main
 
 import (
+	"./splay"
 	"fmt"
 	"math/rand"
-	"./splay"
 )
 
 type Tree struct {
@@ -48,5 +48,5 @@ func main() {
 		} else {
 			splay.Print(ST)
 		}
-  }
+	}
 }
