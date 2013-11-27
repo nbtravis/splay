@@ -50,7 +50,7 @@ our project (a very similar example is given in <i>example.go</i>):
     // This Splay Tree will use strings as keys and strings as values
     // It returns 0, 1, or 2 based on the lexical comparison of the key strings
     func (T *Tree) Ord(key1, key2 interface{}) int {
-        for i := 0; i < utf8.RuneCountInString(key1.(string)); {
+        for i := 0; i < len(key1.(string)); {
             c1, j := utf8.DecodeRuneInString(key1.(string)[i:])
             c2, _ := utf8.DecodeRuneInString(key2.(string)[i:])
             if c1 < c2 {
