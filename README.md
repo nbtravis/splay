@@ -22,7 +22,7 @@ Your <code>SplayTree</code> implementation must contain a <code>root *Node</code
 
 <code>SetRoot</code> and <code>GetRoot</code> are the getter and setter for root, and <code>Ord</code> is a method for
 comparing keys must return 0 if key1 < key2, 1 if key1 == key2, or 2 if
-key1 > key2.
+key1 > key2 (for whatever definitions of <, ==, and > apply to your key type).
 
 Here's an example assuming we have the splay directory in the same directory as
 our project (a very similar example is given in <i>example.go</i>):
